@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart' as crypto;
 
 /// Created by nightkyb at 2019/12/15 0:05
@@ -12,7 +11,7 @@ extension StringExt on String {
   String get md5 {
     final content = utf8.encode(this);
     final digest = crypto.md5.convert(content);
-    return hex.encode(digest.bytes);
+    return digest.toString(); // 其实就是 hex.encode(digest.bytes)
   }
 
   /// Encode base64.
