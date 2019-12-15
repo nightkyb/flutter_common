@@ -4,7 +4,7 @@ import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart' as crypto;
 
 /// Created by nightkyb at 2019/12/15 0:05
-extension on String {
+extension StringExt on String {
   /// Returns true if this string is null or empty.
   bool get isNullOrEmpty => this == null || this.isEmpty;
 
