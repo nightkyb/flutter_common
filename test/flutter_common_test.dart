@@ -6,5 +6,10 @@ void main() {
     expect(''.isNullOrEmpty, true);
     expect([].isNullOrEmpty, true);
     expect({}.isNullOrEmpty, true);
+    expect('你'.isZh, true);
+    expect('你好'.isZh, true);
+    expect('a'.isZh, false);
+    expect('ab'.isZh, false);
+    expect('ab你好ab'.isZh, true);
   });
 }
