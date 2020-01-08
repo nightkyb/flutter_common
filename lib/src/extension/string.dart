@@ -23,19 +23,29 @@ extension StringExt on String {
   /// characters (as defined by [String.trim]).
   bool get isNullOrBlank => this == null || this.trim().isEmpty;
 
+  /// Parses the string as an [int] number and returns the result.
+  int toInt() => int.parse(this);
+
+  /// Parses the string as an [int] number and returns the result or `null` if
+  /// the string is not a valid representation of a number.
+  int toIntOrNull() => int.tryParse(this);
+
+  /// Parses the string as a [double] number and returns the result.
+  double toDouble() => double.parse(this);
+
+  /// Parses the string as an [double] number and returns the result or `null`
+  /// if the string is not a valid representation of a number.
+  double toDoubleOrNull() => double.tryParse(this);
+
+  List<int> toUtf8() => utf8.encode(this);
+
+  List<int> toUtf16() => codeUnits;
+
   /// Encode md5.
-  String get md5 {
-    final content = utf8.encode(this);
-    final digest = crypto.md5.convert(content);
-    return digest.toString(); // 其实就是 hex.encode(digest.bytes)
-  }
+  String get md5 => crypto.md5.convert(toUtf8()).toString();
 
   /// Encode base64.
-  String get base64 {
-    final content = utf8.encode(this);
-    final digest = base64Encode(content);
-    return digest;
-  }
+  String get base64 => base64Encode(toUtf8());
 
   /// Decode base64.
   String get decodeBase64 => String.fromCharCodes(base64Decode(this));
