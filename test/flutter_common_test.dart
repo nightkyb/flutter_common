@@ -13,5 +13,7 @@ void main() {
     expect('ab你好ab'.isZh, true);
     expect('a'.pairWith('b').first, 'a');
     expect('a'.pairWith('b').toList().length, 2);
+    expect('a'.pairWith('b') == 'a'.pairWith('b'), true);
+    expect(1.pairWith('b') == 2.pairWith('b'), false);
   });
 }
