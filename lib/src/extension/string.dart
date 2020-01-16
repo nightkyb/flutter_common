@@ -7,20 +7,20 @@ extension StringExt on String {
   /// Returns true if this string is either null or empty.
   bool get isNullOrEmpty => this == null || this.isEmpty;
 
-  /// Returns true if this string is either empty or is solely made of whitespace
-  /// characters (as defined by [String.trim]).
+  /// Returns true if this string is either empty or is solely made of
+  /// whitespace characters (as defined by [String.trim]).
   bool get isBlank => this.trim().isEmpty;
 
-  /// Returns true if this string is neither empty nor is solely made of whitespace
-  /// characters.
+  /// Returns true if this string is neither empty nor is solely made of
+  /// whitespace characters.
   ///
   /// See also:
   ///
   ///  * [isBlank]
   bool get isNotBlank => this.trim().isNotEmpty;
 
-  /// Returns true if this string is either null, empty or is solely made of whitespace
-  /// characters (as defined by [String.trim]).
+  /// Returns true if this string is either null, empty or is solely made of
+  /// whitespace characters (as defined by [String.trim]).
   bool get isNullOrBlank => this == null || this.trim().isEmpty;
 
   /// Parses the string as an [int] number and returns the result.
@@ -37,8 +37,10 @@ extension StringExt on String {
   /// if the string is not a valid representation of a number.
   double toDoubleOrNull() => double.tryParse(this);
 
+  /// Converts to utf8.
   List<int> toUtf8() => utf8.encode(this);
 
+  /// Converts to utf16.
   List<int> toUtf16() => codeUnits;
 
   /// Encode md5.

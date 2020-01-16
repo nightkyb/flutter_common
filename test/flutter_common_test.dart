@@ -11,5 +11,7 @@ void main() {
     expect('a'.isZh, false);
     expect('ab'.isZh, false);
     expect('ab你好ab'.isZh, true);
+    expect('a'.pairWith('b').first, 'a');
+    expect('a'.pairWith('b').toList().length, 2);
   });
 }
