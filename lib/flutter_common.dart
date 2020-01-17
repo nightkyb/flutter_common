@@ -6,3 +6,4 @@ export 'src/extension/collection.dart';
 export 'src/extension/file.dart';
 export 'src/extension/string.dart';
 export 'src/type/tuples.dart';
+export 'src/util/date_utils.dart';

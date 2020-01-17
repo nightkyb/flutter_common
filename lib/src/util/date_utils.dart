@@ -13,7 +13,7 @@ class DateUtils {
       DateFormat(pattern).format(DateTime.parse(date));
 }
 
-extension StringExt on String {
+extension StringToDateTimeExt on String {
   String formatDate(String pattern) =>
       DateFormat(pattern).format(DateTime.parse(this));
 }
