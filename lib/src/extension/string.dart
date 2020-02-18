@@ -23,6 +23,20 @@ extension StringExt on String {
   /// whitespace characters (as defined by [String.trim]).
   bool get isNullOrBlank => this == null || this.trim().isEmpty;
 
+  /// Returns this string if it's not empty
+  /// or the result of calling [defaultValue] function if the string is empty.
+  String ifEmpty(String defaultValue()) => this.isEmpty ? defaultValue() : this;
+
+  /// Returns this string if it is not empty and doesn't consist solely of whitespace characters,
+  /// or the result of calling [defaultValue] function otherwise.
+  String ifBlank(String defaultValue()) => this.isBlank ? defaultValue() : this;
+
+  String ifNullOrEmpty(String defaultValue()) =>
+      this.isNullOrEmpty ? defaultValue() : this;
+
+  String ifNullOrBlank(String defaultValue()) =>
+      this.isNullOrBlank ? defaultValue() : this;
+
   /// Parses the string as an [int] number and returns the result.
   int toInt() => int.parse(this);
 
@@ -41,7 +55,7 @@ extension StringExt on String {
   List<int> toUtf8() => utf8.encode(this);
 
   /// Converts to utf16.
-  List<int> toUtf16() => codeUnits;
+  List<int> toUtf16() => this.codeUnits;
 
   /// Encode md5.
   String get md5 => crypto.md5.convert(toUtf8()).toString();

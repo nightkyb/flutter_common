@@ -6,6 +6,12 @@ void main() {
     expect(''.isNullOrEmpty, true);
     expect([].isNullOrEmpty, true);
     expect({}.isNullOrEmpty, true);
+    expect(null.ifNullOrEmpty(() => 'a'), 'a');
+    expect(''.ifNullOrEmpty(() => 'a'), 'a');
+    expect('b'.ifNullOrEmpty(() => 'a'), 'b');
+    expect(null.ifNullOrBlank(() => 'a'), 'a');
+    expect(' '.ifNullOrBlank(() => 'a'), 'a');
+    expect('b'.ifNullOrBlank(() => 'a'), 'b');
     expect('你'.isZh, true);
     expect('你好'.isZh, true);
     expect('a'.isZh, false);
